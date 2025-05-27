@@ -15,6 +15,9 @@ class Appointment(Base):
     patient_id = Column(Integer, ForeignKey("doctors.id"), nullable=False)
     date = Column(Integer())
 
+    # Relationships
+    doctor = relationship("Doctor" ,back_populates="appointments")
+    patient = relationship("Patient" ,back_populates="appointments")
 
     def __init__(self,appointment_date,date=None):
         self.appointment_date = appointment_date

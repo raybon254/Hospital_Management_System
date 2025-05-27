@@ -13,6 +13,9 @@ class Department(Base):
     name  = Column(VARCHAR(), nullable=False)
     date = Column(Integer())
 
+    # relationships
+    doctors = relationship("Doctor", back_populates="department", cascade="all, delete-orphan")
+
 
     def __init__(self,name,date=None):
         self.name = name

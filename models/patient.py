@@ -14,6 +14,9 @@ class Patient(Base):
     age = Column(Integer(), nullable=False)
     date = Column(Integer())
 
+    # Relationships
+    appointments = relationship("Appointment", back_populates="patient", cascade="all, delete-orphan")
+
 
     def __init__(self,name,age,date=None):
         self.name = name
