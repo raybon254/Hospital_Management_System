@@ -21,5 +21,5 @@ class Patient(Base):
     def __init__(self,name,age,date=None):
         self.name = name
         self.age = age
-        self.date = date if date is not None else datetime.now().year
+        self.date = date if date is not None else datetime.now()
     pass

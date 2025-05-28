@@ -15,13 +15,15 @@ class Doctor(Base):
     department_id = Column(Integer, ForeignKey("departments.id"), nullable=False)
     date = Column(Integer())
 
+    department = relationship("Department", back_populates="doctors")
+    
     # Relationships
     appointments = relationship("Appointment", back_populates="doctor", cascade="all, delete-orphan")
-    department = relationship("Department", back_populates="doctors")
 
 
-    def __init__(self,name,specialization ,date=None):
+    def __init__(self,name,specialization,department,date=None):
         self.name = name
-        self.specialization  = specialization 
-        self.date = date if date is not None else datetime.now().year
+        self.specialization  = specialization
+        self.department  = department
+        self.date = date if date is not None else datetime.now()
     pass          

@@ -19,5 +19,5 @@ class Department(Base):
 
     def __init__(self,name,date=None):
         self.name = name
-        self.date = date if date is not None else datetime.now().year
+        self.date = date if date is not None else datetime.now()
     pass
