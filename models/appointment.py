@@ -10,6 +10,7 @@ class Appointment(Base):
 
     # Table structure
     id = Column(Integer(), primary_key= True)
+    appointment_name = Column(String(), nullable=False)
     appointment_date = Column(Integer(), nullable=False)
     doctor_id = Column(Integer, ForeignKey("doctors.id"), nullable=False)
     patient_id = Column(Integer, ForeignKey("patients.id"), nullable=False)
@@ -19,7 +20,8 @@ class Appointment(Base):
     doctor = relationship("Doctor" ,back_populates="appointments")
     patient = relationship("Patient" ,back_populates="appointments")
 
-    def __init__(self,appointment_date,doctor,patient,date=None):
+    def __init__(self,appointment_name,appointment_date,doctor,patient,date=None):
+        self.appointment_name = appointment_name
         self.appointment_date = appointment_date
         self.doctor = doctor
         self.patient = patient

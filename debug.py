@@ -1,7 +1,7 @@
-from models.base import Base,session,engine
+from models.base import session,create_table
 from models import Appointment,Department,Patient,Doctor
 
-
+create_table()
 # CRUD operations for all classes
 # Utility functions
 # Dep
@@ -17,7 +17,7 @@ def get_patient(pat_name):
 
 # App
 def get_appointment(app_name):
-    return session.query(Appointment).filter_by(name=app_name).first()
+    return session.query(Appointment).filter_by(appointment_name=app_name).first()
 
 
 def delete_action(prompt: str) ->bool:
@@ -64,8 +64,10 @@ def update_dep():
 
 # Delete
 def del_dep():
-    department = input("Enter department:")
-    if get_department(department):
+    department_name = input("Enter department:")
+    department = get_department(department_name)
+
+    if department:
         if delete_action("Confirm you want to delete department:"):
             session.delete(department)
             session.commit()
@@ -79,6 +81,7 @@ def del_dep():
     # Add
 def add_doc():
         doc_name = input("Enter doctor name: ")
+        doc_specs = input("Enter Doctor's specialization : ")
 
         # Get department
         dep_name = input("Enter department for doctor: ")
@@ -94,7 +97,7 @@ def add_doc():
             return
 
         # Create and add doctor with department
-        doctor = Doctor(name=doc_name, department=department)
+        doctor = Doctor(name=doc_name, specialization=doc_specs  ,department=department)
 
         try:
             session.add(doctor)
@@ -125,8 +128,9 @@ def update_doc():
 
     # Delete
 def del_doc():
-        doctor = input("Enter doctor:")
-        if get_doctor(doctor):
+        doctor_name = input("Enter doctor:")
+        doctor = get_doctor(doctor_name)
+        if doctor:
             if delete_action("Confirm you want to delete doctor:"):
                 session.delete(doctor)
                 session.commit()
@@ -140,6 +144,7 @@ def del_doc():
     # Add
 def add_app():
             app_name = input("Enter appointment name: ")
+            app_date = input("Enter appointment date: ")
 
         # Fetch Doctor
             doc_name = input("Enter doctor name for appointment: ")
@@ -156,7 +161,7 @@ def add_app():
                 return
 
             # Create Appointment with relationships
-            appointment = Appointment(name=app_name, doctor=doctor, patient=patient)
+            appointment = Appointment(appointment_name= app_name, appointment_date=app_date, doctor=doctor, patient=patient)
 
             try:
                 session.add(appointment)
@@ -169,16 +174,18 @@ def add_app():
 def all_app():
         apps = session.query(Appointment).all()
         for a in apps:
-            print(a.name)
+            print(f"{a.patient.name} has an appointment with {a.doctor.name} on {a.appointment_date}")
 
     # Update
 def update_app():
-        appoinment_name = input("Enter Appointment:")
+        appoinment_name = input("Enter Appointment name:")
 
-        appointment = get_department(appoinment_name)
+        appointment = get_appointment(appoinment_name)
         if appointment:
             new_appointment = input("Enter updated_appointment:")
-            appointment.name = new_appointment
+            new_appointment_date = input("Enter updated_date:")
+            appointment.appointment_name = new_appointment
+            appointment.appointment_date = new_appointment_date
             session.commit()
             print("Appointment updated successfully.")
         else:
@@ -187,8 +194,10 @@ def update_app():
 
     # Delete
 def del_app():
-        appointment = input("Enter appointment:")
-        if get_appointment(appointment):
+        appointment_name = input("Enter appointment:")
+        appointment = get_appointment(appointment_name)
+
+        if appointment:
             if delete_action("Confirm you want to delete appointment:"):
                 session.delete(appointment)
                 session.commit()
@@ -202,12 +211,13 @@ def del_app():
     #Add
 def add_pat():
         pat_name = input("Enter patient name:")
+        pat_age = input("Enter patient age:")
         
         if get_patient(pat_name):
             print(f"Patient already exists.")
             return
         try:
-            session.add(Patient(name = pat_name))
+            session.add(Patient(name = pat_name, age=pat_age))
             session.commit()
             print(f"Patient added successfully")
 
@@ -236,8 +246,10 @@ def update_pat():
 
     # Delete
 def del_pat():
-        patient = input("Enter patient:")
-        if get_patient(patient):
+        patient_name = input("Enter patient:")        
+        patient = get_patient(patient_name  )      
+
+        if patient:
             if delete_action("Confirm you want to delete patient:"):
                 session.delete(patient)
                 session.commit()

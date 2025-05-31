@@ -8,3 +8,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 Base = declarative_base()
+
+# table creation
+def create_table():
+    Base.metadata.create_all(engine)
