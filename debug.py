@@ -1,4 +1,5 @@
-from models import session, Department, Patient, Doctor, Appointment
+from models import Department, Patient, Doctor, Appointment
+from models.base import session
 
 def print_all_departments():
     print("=== Departments ===")
@@ -6,7 +7,7 @@ def print_all_departments():
     if not departments:
         print("No departments found.")
     for d in departments:
-        print(f"ID: {d.id} | Name: {d.name} | Description: {d.description}")
+        print(f"ID: {d.id} | Name: {d.name} ")
     print()
 
 def print_all_patients():
@@ -35,7 +36,7 @@ def print_all_appointments():
     for a in appointments:
         patient_name = a.patient.name if a.patient else "Unknown Patient"
         doctor_name = a.doctor.name if a.doctor else "Unknown Doctor"
-        appt_time = a.appointment_date.strftime("%Y-%m-%d %H:%M") if a.appointment_date else "No Date"
+        appt_time = a.appointment_date if a.appointment_date else "No Date"
         print(f"Appointment ID: {a.id} | Patient: {patient_name} | Doctor: Dr. {doctor_name} | Date & Time: {appt_time}")
     print()
 

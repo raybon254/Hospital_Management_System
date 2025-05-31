@@ -49,7 +49,7 @@ def upgrade() -> None:
     sa.Column('patient_id', sa.Integer(), nullable=False),
     sa.Column('date', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['doctor_id'], ['doctors.id'], ),
-    sa.ForeignKeyConstraint(['patient_id'], ['doctors.id'], ),
+    sa.ForeignKeyConstraint(['patient_id'], ['patients.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
