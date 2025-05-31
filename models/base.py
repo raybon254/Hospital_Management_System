@@ -12,3 +12,7 @@ Base = declarative_base()
 # table creation
 def create_table():
     Base.metadata.create_all(engine)
+
+#drop table
+def drop_table():
+    Base.metadata.drop_all(engine)

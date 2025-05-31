@@ -12,14 +12,16 @@ class Patient(Base):
     id = Column(Integer(), primary_key= True)
     name  = Column(VARCHAR(), nullable=False)
     age = Column(Integer(), nullable=False)
+    gender = Column(String(), nullable=False)
     date = Column(Integer())
 
     # Relationships
     appointments = relationship("Appointment", back_populates="patient", cascade="all, delete-orphan")
 
 
-    def __init__(self,name,age,date=None):
+    def __init__(self,name,age,gender,date=None):
         self.name = name
         self.age = age
+        self.gender = gender
         self.date = date if date is not None else datetime.now()
     pass
