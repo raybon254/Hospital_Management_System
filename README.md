@@ -5,6 +5,7 @@ Demo
 
 Watch a full walkthrough of the system here:
     🎥 Loom Video Walkthrough - https://www.loom.com/share/65ba7c94fc674c049c5e0c6d0a77aa36?sid=f36396a3-1da0-4f3d-bfd7-bf9c94ea1723
+    
     🗃️ Database Schema - https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
 
 View the full database relationship schema on dbdiagram.io:
