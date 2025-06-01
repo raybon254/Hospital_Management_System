@@ -52,8 +52,9 @@ Setup Instructions
         cd HOSPITAL_MANAGEMENT-SYSTEM
 
 Create a virtual environment (optional but recommended)
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+    python3 -m venv venv
+    source venv/bin/activate 
+    # On Windows: venv\Scripts\activate
 
 Run the main application
 
@@ -84,7 +85,8 @@ Database Models
         id, patient_id, doctor_id, date, time
 
 Refer to the Hospital DB Relationship Schema for a visual model.
-https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
+    https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
+    
 💻 Example Commands
 
 # Add a department
