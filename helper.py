@@ -222,7 +222,7 @@ def del_app():
             else:
                 print(f"Deletion cancelled!")
         else:
-            print(f"Department not found")
+            print(f"Appointment not found")
 
 # Patient
     #Add

@@ -1,6 +1,6 @@
 from models.base import session,create_table
 from models import *
-from models.helper import (
+from helper import (
     add_dep, all_dep, update_dep, del_dep,
     add_doc, all_doc, update_doc, del_doc,
     add_app, all_app, update_app, del_app,
