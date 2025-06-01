@@ -87,6 +87,7 @@ Database Models
         id, patient_id, doctor_id, date, time
 
 Refer to the Hospital DB Relationship Schema for a visual model.
+
     https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
     
 💻 Example Commands
