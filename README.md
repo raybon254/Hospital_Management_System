@@ -11,7 +11,7 @@ Watch a full walkthrough of the system here:
     
     🗃️ Database Schema: 
             
-            https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
+            https://dbdiagram.io/d/Copy-of-Hospital-DB-relationship-schema-683da15761dc3bf08d2409a4
 
 View the full database relationship schema on dbdiagram.io:
 Hospital DB Relationship Schema
@@ -92,7 +92,7 @@ Database Models
 
 Refer to the Hospital DB Relationship Schema for a visual model.
 
-    https://dbdiagram.io/d/Hospital-DB-relationship-schema-6834a1d56980ade2eb782076
+    https://dbdiagram.io/d/Copy-of-Hospital-DB-relationship-schema-683da15761dc3bf08d2409a4
     
 💻 Example Commands
 
