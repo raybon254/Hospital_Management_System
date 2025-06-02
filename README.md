@@ -111,8 +111,11 @@ Enter gender: Female
 
 # Schedule an appointment
 Enter appoinment name: Surgery 
+
 Enter date (YYYY-MM-DD HH:MM): 2025-06-01  10:30
+
 Enter doctor: Dr.Smith
+
 Enter patient: Alice Johnson
 
 
