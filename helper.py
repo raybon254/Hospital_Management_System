@@ -153,6 +153,7 @@ def del_doc():
 # Appointment
     # Add
 def add_app():
+            from datetime import datetime
             app_name = input("Enter appointment name: ")
 
             # validate date
@@ -160,6 +161,8 @@ def add_app():
             date = get_date_validation(app_date)
             if not date:
                 print("Invalid date format. Please use YYYY-MM-DD HH:MM.")
+            elif date < datetime.now():
+                 print("Date and time can't be in the past!")
             else:
                 print("Date accepted:", date)
 
